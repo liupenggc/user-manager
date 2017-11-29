@@ -150,7 +150,6 @@ public class HBaseTemplate implements CostDao{
      * @param endRowKey   stopRowKey
      */
     public static void scanResult(String tableName, String beginRowKey, String endRowKey) {
-        //String familyName = "datainfo";
         Scan scan = new Scan();
         scan.setStartRow(Bytes.toBytes(beginRowKey));
         scan.setStopRow(Bytes.toBytes(endRowKey));
@@ -235,13 +234,9 @@ public class HBaseTemplate implements CostDao{
             HColumnDescriptor[] columnFamilies = table.getTableDescriptor().getColumnFamilies();
             for (int i = 0; i < columnFamilies.length; i++) {
                 String familyName = columnFamilies[i].getNameAsString();
-                System.out.println(familyName);
                 if (familyName.equals("data")) {
-                	System.out.println(column.length);
                     for (int j = 0; j < column.length; j++) {
-                    	System.out.println(" asdas "+column[j]+" sdds "+value[j]);
                         put.addColumn(Bytes.toBytes(familyName), Bytes.toBytes(column[j]), Bytes.toBytes(value[j]));
-                        System.out.println("asdas"+column[j]);
                     }
                 }
                 table.put(put);
@@ -312,6 +307,7 @@ public class HBaseTemplate implements CostDao{
 //    }
     public static Cost result2Bean(Result result, String familyName) {
         Cost cost = new Cost();
+//        获取rowkey的值
         cost.setId(Bytes.toString(result.getRow()));
         cost.setName(Bytes.toString(result.getValue(Bytes.toBytes(familyName), Bytes.toBytes("name"))));
         cost.setAge(Bytes.toString(result.getValue(Bytes.toBytes(familyName), Bytes.toBytes("age"))));

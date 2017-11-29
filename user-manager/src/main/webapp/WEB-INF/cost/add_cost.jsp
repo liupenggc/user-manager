@@ -19,48 +19,9 @@
                 else
                     divResult.style.display = "none";
             }
-
-            //切换资费类型
-            function feeTypeChange(type) {
-                var inputArray = document.getElementById("main").getElementsByTagName("input");
-                if (type == 1) {
-                    inputArray[4].readOnly = true;
-                    inputArray[4].value = "";
-                    inputArray[4].className += " readonly";
-                    inputArray[5].readOnly = false;
-                    inputArray[5].className = "width100";
-                    inputArray[6].readOnly = true;
-                    inputArray[6].className += " readonly";
-                    inputArray[6].value = "";
-                }
-                else if (type == 2) {
-                    inputArray[4].readOnly = false;
-                    inputArray[4].className = "width100";
-                    inputArray[5].readOnly = false;
-                    inputArray[5].className = "width100";
-                    inputArray[6].readOnly = false;
-                    inputArray[6].className = "width100";
-                }
-                else if (type == 3) {
-                    inputArray[4].readOnly = true;
-                    inputArray[4].value = "";
-                    inputArray[4].className += " readonly";
-                    inputArray[5].readOnly = true;
-                    inputArray[5].value = "";
-                    inputArray[5].className += " readonly";
-                    inputArray[6].readOnly = false;
-                    inputArray[6].className = "width100";
-                }
-            }
         </script>
     </head>
     <body>
-        <!--Logo区域开始-->
-        <div id="header">
-            <img src="../images/logo.png" alt="logo" class="left"/>
-            <a href="#">[退出]</a>            
-        </div>
-        <!--Logo区域结束-->
         <!--主要区域开始-->
         <div id="main">            
             <div id="save_result_info" class="save_fail">保存失败，资费名称重复！</div>
@@ -89,9 +50,9 @@
         </div>
         <!--主要区域结束-->
         <div id="footer">
-            <span>[源自北美的技术，最优秀的师资，最真实的企业环境，最适用的实战项目]</span>
+            <span>liupenggc@feinno.com</span>
             <br />
-            <span>版权所有(C)云科技有限公司 </span>
+            <span>北京新媒传信科技有限公司 </span>
         </div>
     </body>
 </html>
